@@ -42,9 +42,9 @@ $ `firefox panam.html` # Tested only with firefox
 
 You can install PANAM2 in your Linux system (1) or a system "ready-to-use" withthis pipeline thanks to a docker image (2)
  
-- 1) download PANAM2 package in the final location folder and in a terminal type:
+1) download PANAM2 package in the final location folder and in a terminal type:
 
-$ `git clone https://github.com/panammeb/PANAM2.git` # or downmaod direcly from the web interface 
+$ `git clone https://github.com/panammeb/PANAM2.git` # or download direcly from the web interface 
 
 $ `cd PANAM2`
 
@@ -56,7 +56,7 @@ VSEARCH, HMMALIGN, FASTTREE and Krona will be compiled and installed in the bin 
 
 PANAM2 was tested on ubuntu system 16.10 with default packages. 
 
-- 2) **A docker image** from this system with all dependances and the PANAM2 pipeline can be obtained from: https://www.dropbox.com/s/1byu667oota1skv/panam2.tar.bz2
+2) **A docker image** from this system with all dependances and the PANAM2 pipeline can be obtained from: https://www.dropbox.com/s/1byu667oota1skv/panam2.tar.bz2
 
 Docker must be installed in your system
 
