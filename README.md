@@ -59,7 +59,7 @@ PANAM2 was tested on ubuntu system 16.10 with default packages.
 
 Docker must be installed in your system
 
-$ `wget https://www.dropbox.com/s/1byu667oota1skv/panam2.tar.bz2?dl=0`
+$ `wget https://www.dropbox.com/s/1byu667oota1skv/panam2.tar.bz2`
 
 $ `bzip2 -d panam2.tar.bz2`
 
