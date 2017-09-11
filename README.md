@@ -28,7 +28,6 @@ The results of these differents steps are writen in the following directoris: qu
 
 The HTML report allows to display the main results with a browser and can be open by typing in the result path:
 
-$ `firefox panam.html` # Tested only with firefox
 
 **Overview of the HTML report**
 
@@ -103,7 +102,9 @@ Results can be therefore analyzed step after step according to the options used 
 
 $ `perl panam2.pl -ini file.ini`
 
+**HTM report**
 
+$ `firefox panam.html` # Tested only with firefox
 
 
 **USAGE with the docker image:**
