@@ -1,0 +1,259 @@
+<html>
+	<head>
+		<!--Import CSS-->
+		<link rel="stylesheet" href=".CSS/panam.css" type="text/css" />
+		
+		<!--Import library-->
+		<script type="text/javascript" src=".CSS/functions.js"></script>
+		<script type="text/javascript" src=".CSS/jsapi"></script>
+		<script src=".CSS/jquery-1.7.1.min.js"></script>
+		
+		<!--Import JSON file-->
+		<script type="text/javascript">
+	  		var mydata;
+			var oReq = new XMLHttpRequest();
+			oReq.onload = reqListener;
+			oReq.open("get", ".CSS/.res/camembert.json", true);
+			oReq.send();
+			function reqListener(e) {
+				mydata = JSON.parse(this.responseText);
+			}
+		</script>
+		
+		<script type="text/javascript">
+	  		var datac;
+			var oReq = new XMLHttpRequest();
+			oReq.onload = reqListener;
+			oReq.open("get", ".CSS/.res/clustering.json", true);
+			oReq.send();
+			function reqListener(e) {
+				datac = JSON.parse(this.responseText);
+			}
+		</script>
+		
+			<script type="text/javascript">
+	  		var data_otu;
+			var oReq = new XMLHttpRequest();
+			oReq.onload = reqListener;
+			oReq.open("get", ".CSS/.res/otu.json", true);
+			oReq.send();
+			function reqListener(e) {
+				data_otu = JSON.parse(this.responseText);
+			}
+		</script>
+		
+		<!--Creation camembert-->
+		<script type="text/javascript">
+			google.load('visualization', '1.0', {'packages':['corechart']});
+			google.setOnLoadCallback(drawChart);
+	
+			function drawChart() {
+				var data = new google.visualization.DataTable();
+				data.addColumn('string', 'Feature');
+				data.addColumn('number', 'Positive');
+				var f,n;
+				for(var i = 0 ; i<mydata.length;i++){
+					f = mydata[i].k
+					n = mydata[i].v
+					data.addRows([[f,n]])
+				}
+				
+				var options = { 'width': "550" , 'height': "400" };
+				var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+				chart.draw(data, options);
+			}
+		</script>
+		
+		<script type="text/javascript">
+			google.load('visualization', '1.0', {'packages':['corechart']});
+			google.setOnLoadCallback(drawChart);
+	
+			function drawChart() {
+				var data = new google.visualization.DataTable();
+				data.addColumn('string', 'Feature');
+				data.addColumn('number', 'Positive');
+				var f,n;
+				for(var i = 0 ; i<datac.length;i++){
+					f = datac[i].k
+					n = datac[i].v
+					data.addRows([[f,n]])
+				}
+				
+				var options = { 'width':"550", 'height':"350"};
+				var chartc = new google.visualization.PieChart(document.getElementById('chart_clust'));
+				chartc.draw(data, options);
+			}
+		</script>
+		
+		<script type="text/javascript">
+			google.load('visualization', '1.0', {'packages':['corechart']});
+			google.setOnLoadCallback(drawChart);
+	
+			function drawChart() {
+				var data = new google.visualization.DataTable();
+				data.addColumn('string', 'Feature');
+				data.addColumn('number', 'Positive');
+				var f,n;
+				for(var i = 0 ; i<data_otu.length;i++){
+					f = data_otu[i].k
+					n = data_otu[i].v
+					data.addRows([[f,n]])
+				}
+				
+				var options = { 'width':"550", 'height':"350"};
+				var chart_otu = new google.visualization.PieChart(document.getElementById('chart_otu'));
+				chart_otu.draw(data, options);
+			}
+		
+			$(document).ready(function(e) {
+				$('#menu').load('.CSS/.res/sample.html');
+			});
+			
+			$(document).ready(function(e) {
+				$('#NN_N').load('.CSS/.res/taxo_NN_norm.html');
+			});
+			
+			$(document).ready(function(e) {
+				$('#NN_').load('.CSS/.res/taxo_NN.html');
+			});
+			
+			$(document).ready(function(e) {
+				$('#LCA_N').load('.CSS/.res/taxo_LCA_norm.html');
+			});
+			
+			$(document).ready(function(e) {
+				$('#LCA_').load('.CSS/.res/taxo_LCA.html');
+			});
+			
+			$(document).ready(function(e) {
+				$('#ARBRE').load('.CSS/.res/gp_arbre.html');
+			});
+		</script>
+		
+		
+		<title>PANAM2</title>
+	</head>
+	
+	<body>
+		<div id="form">
+			
+			<!-- Parameters -->
+			<onglet id="parametre">&nbsp; PARAMETERS &nbsp;</onglet>
+			<div id="cadre">
+			<object type="text/html" data=".CSS/.res/parametre.html" width="100%" height="25%"></object>
+			</div>
+			
+<br><br>		
+			<!-- Quality -->
+			<onglet id="quality">&nbsp; QUALITY &nbsp;</onglet>
+			<div id="cadre">	
+<br>			<div id="div1"><object  height="350" width="200" type="text/html" data=".CSS/.res/seq_nb_quality.html"></object></div>
+				<div id="div2"><object id="chart_div" ></object></div>
+				<div class="clear"></div>
+			</div>
+<br><br>
+
+			<!-- Clustering -->
+			<onglet id="clust">&nbsp; CLUSTERING &nbsp;</onglet>
+			<div id="cadre">	
+<object type="text/html" data=".CSS/.res/clust.html" width="auto" height="100" align="right"></object>
+				<br><br><br><br><br><title2>  &#45; OTUs number </title2>
+				<object type="text/html" data=".CSS/.res/nb_otu.html" width="700" height="30" ></object>					
+					<center><div id="chart_otu"></div></center>
+				
+					
+<hr class="ligne1"><br>
+
+				<title2> &#45; Sequences in OTUs </title2>
+				<br><object type="text/html" data=".CSS/.res/nb_seq.html" width="700" height="50"></object>					
+					<center><div id="chart_clust"></div></center>
+			</div>
+			 
+			<!-- Diversity -->
+<br><br>	<onglet>&nbsp; &alpha; and &beta; DIVERSITIES &nbsp;</onglet>
+			<div id="cadre">				
+<br>
+			<title1><b>  &bull; &alpha; diversity</b></title1>
+<br><br>		<title2 id="rare">  &#45; Rarefaction curves</title2>
+					<center><img src="R_output/Rarefaction_curves_OTUs.jpg" alt="No result" title="Rarefaction"/></center>
+<br><br>
+<br><hr class="ligne1"><br>	
+				<title2 id="rich">  &#45; Richness and diversity indices</title2>
+<br>				<object height="26%" width="100%" type="text/html" data=".CSS/.res/richness_div.html"></object>
+<hr class="ligne1"><br>	
+
+			<title2 id="rich_n">  &#45; Richness and diversity indices normalized</title2>
+<br>			<object height="15%" width="100%" type="text/html" data=".CSS/.res/richness_div_normalized.html"></object>
+<hr id="phylo" class="ligne1"><br>
+						<title2 id="indices">  &#45; Phylogenetic indices</title2>
+						<object height="50%" width="100%" type="text/html" data=".CSS/.res/clade.html"></object>
+						<object height="8%" width="100%" type="text/html" data=".CSS/.res/clade1.html"></object>
+
+<br><br>
+<br><hr class="ligne"><br>	
+
+					<title1><b>  &bull; &beta; diversity</b></title1><br><br>
+						<title2 id="phyletic"> &#45; &beta; distribution by phyletic level :</title2> 
+						<div id="ARBRE" width="100%"></div>
+						<object height="8%" width="100%" type="text/html" data=".CSS/.res/gp_arbre1.html"></object>
+					
+<hr class="ligne1"><br>
+	
+						<title2 id="otu">  &#45; &beta; diversity at the OTU level </title2>
+						<center><tcadre id="heatmap">Heatmap</tcadre></center><br>
+						<center><img src="R_output/Heatmap_OTUs.jpg" alt="No result" title="Heatmap" width="50%" ></center>
+<br><br>			
+
+			</div>
+			
+					<br><br>
+					<!-- Taxonomy -->
+					<onglet>&nbsp; TAXONOMY &nbsp;</onglet>
+					<div id="cadre">
+					<br><title1 id="sim"><b> &bull; Similarity</b></title1><br><br>
+						<center><object id="krona_lca" type="text/html" data="Figures/Fig_taxo_distribution_SIM.html" width="90%" height="60%"></object></center>
+<br><br><hr class="ligne"><br>	<br>
+					<title1><b> &bull; LCA</b></title1><br><br>
+							<title2>  &#45; Non-normalized</title2><br><br>
+								<center><object id="krona_lca" type="text/html" data="Figures/Fig_taxo_distribution_LCA.html" width="90%" height="60%"></object>
+<br>							<br><div id="LCA_" ></div></center>
+
+<br><br><br><hr class="ligne1"><br>	<br>
+
+							<title2>  &#45; Normalize</title2>
+<br><br>
+							<center><object id="krona_lcan" type="text/html" data="Figures/Fig_taxo_distribution_normalized_LCA.html" width="90%" height="60%"></object>				
+							<br><div id="LCA_N" ></div></center>
+<br><br>
+<br><br><hr class="ligne"><br>	
+					<title1><b> &bull; NN</b></title1><br><br>
+
+
+<br>
+							<title2> &#45; Non-normalized</title2><br><br>
+								<center><object id="krona_nn" type="text/html" data="Figures/Fig_taxo_distribution_NN.html" width="90%" height="60%"></object>				
+								<br><div id="NN_" ></div></center>
+								
+<br><hr class="ligne1"><br>									
+							<br><title2>  &#45; Normalize</title2><br>
+<br>
+								<center><object id="krona_nnn" type="text/html" data="Figures/Fig_taxo_distribution_normalized_NN.html" width="90%" height="60%"></object>				
+								<br><div id="NN_N" ></div></center>
+<br><br>
+					</div>
+<br>	
+			</div>
+		</div>
+		
+		<!-- Titre -->
+		<div id="title">
+<br>		<h1 >PANAM2<a href="javascript:scroll(0,0)" style="margin-left:100px"><font size="3px"> TOP</title2><font size="5px"><b>&#8593; </b></font></a></h1>
+<br>	</div>
+
+<br><br><br><br>
+			
+			<!-- Menu -->
+			<div id="menu" ></div>
+			
+	</body>
+</html>

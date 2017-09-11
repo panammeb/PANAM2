@@ -1,0 +1,233 @@
+h1 { 
+	color : white;
+	text-align: center;
+	margin-top:-1.5%;
+}
+	
+onglet{
+	background-color: #339fff;
+	color: white;
+	float:right;
+	margin-right:3.5%;
+	height:3%;
+	font-size:20px ; /* taille du texte */
+	font-family:Arial, sans-serif;
+	font-weight: bold;
+	border-radius: 10px;
+	width:auto;
+	vertical-align:middle;
+	text-align: center;
+
+}
+
+div#div1
+{
+	width:15%;
+	float:left;
+	height:30%;
+	top:50%;
+}
+
+div#div2
+{
+	width:70%;
+	float:right;
+	height:400;
+}
+
+div#div3
+{
+	width:150;
+	float:left;
+	height:400;
+	margin-left:5%;
+
+}
+
+div#div4
+{
+	width:auto;
+	float:right;
+	height:250;
+	margin-right:15%;
+}
+
+.clear {
+	clear: both;
+} 
+
+div#menuE
+{
+    opacity: 100%;
+	color: #0409a9;
+	top: auto;
+    top: 10%;
+    margin-left: 0%;
+    margin-right:auto;
+    background-color : white;
+    height:auto;
+    width:26%; 
+    border-radius: 18px;
+    border: 2px #086ac2 solid;
+    font: "Times New Roman" ;
+	position: absolute;
+}
+
+div#title{
+	width:26%;
+	height:6%;
+	background-color: #339fff;
+	color: white;
+	position : fixed;
+	text-align: center;
+    margin-top:0%;
+	border-radius: 10px;
+	vertical-align : middle;
+}
+
+.clade{
+	height:600px;
+	width: 100%;
+}
+
+div#form{
+	float: right; 
+	width: 73%;
+	height: 100%;
+	 color: black;
+	margin-top: 0%;
+/*
+	font: 14px "Arial" ;
+*/
+	}
+	
+title1{
+	color: #013ADF;
+	margin-left: 2%;
+	font: 120% bold;
+}
+
+title2{
+	color : #02b6f5;
+	margin-left: 5%;
+	font : 1110;
+}
+
+tcadre{
+	color: #09b1f5;
+	margin-left: 2%;
+	font : 25%;
+	}
+	
+div#cadre
+{
+    opacity: 0.8;
+    margin-bottom: auto;
+    margin-top:2.8%;
+    margin-left: auto;
+    margin-right:40%;
+    height:auto;
+    width:98%; 
+    border-radius: 20px;
+    border: 2px #339fff solid;
+	height: auto;
+    
+}
+
+a 
+{ 
+ text-decoration:none; 
+ color: inherit; 
+
+}
+
+body{
+	 font: 90% "Arial" ;
+	 color: black;
+}
+
+
+div.main li{
+    list-style-type:none;
+    text-decoration:none; 
+	width:95%;
+	margin-left:2%;
+}
+
+div.main a{
+    color:#0404B4;
+    text-decoration:none; 
+}
+
+div.main li[lvl='2'] a{
+
+	color:#013ADF;
+
+}
+
+div.main li[lvl='3'] a{
+	color:#0080FF;
+}
+
+div.main li[lvl='4'] a{
+    color:#2ECCFA;
+}
+
+div.main li[lvl='5'] a{
+    color:#2ECCFA;
+
+}
+
+div.main li a:hover:not(.header) {
+    color:#5bdeda;
+}
+
+
+.arc text {
+  font: 80% sans-serif;
+  text-anchor: middle;
+}
+.arc path {
+  stroke: #fff;
+}
+
+.ligne{
+	border:1px #013ADF solid;
+	float : center;
+	width : 90%;
+}
+
+.ligne1{
+	border:1px #02b6f5 solid;
+	float : center;
+	width : 80%;
+	opacity: 0.5;
+}
+
+
+table
+{
+    border-collapse: collapse;
+    font: 80% "Arial" ;
+}
+
+td, th /* Mettre une bordure sur les td ET les th */
+
+{
+    border: 1px solid #d4d5d7;
+}
+
+td.ab /* Mettre une bordure sur les td ET les th */
+
+{
+    border: 1px solid #5bdeda;
+
+}
+
+caption{
+	color: blue;
+	font: 25%;
+    font-weight: bold;
+}
+
+
