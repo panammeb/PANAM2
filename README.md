@@ -77,9 +77,13 @@ $ `docker run -it panam2:vXX /bin/bash` # this command allows to open the contai
 These different scripts can be launched by a unique command in a terminal with less oportunity for tuning analysis: panam2.pl
 
     - From the raw data included in the test directory (illumina sequencing of the V4 region of bacteria and archaea in lacustrine ecosystem)
+	This file can be with this command `wget https://www.dropbox.com/s/2y9p1jlfy00bsjq/test.tar.gz?dl=0`
+	
 $ `perl panam2.pl -o example -r1 test/R1.fastq.gz -r2 test/R2.fastq.gz -f GTGYCAGCMGCCGCGGTA -r CCCCGYCAATTCMTTTRAGT -tags test/tags.txt -id 0.97 -dom bacteria -dom archaea -div Y` # -div Y corresponds to the script phylodiv_panam.pl
 
-    - From the raw data demultiplexed in the test2 directory (illumina sequencing of the V7 region of eukaryotes in lacustrin ecosystem)
+     - From the raw data demultiplexed in the test2 directory (illumina sequencing of the V7 region of eukaryotes in lacustrin ecosystem)
+    The folder test2 consists of demultipled files with the following format <file name 1>**_R1.fastq.gz**  <file name 1>**_R2.fastq.gz** / <file name 2>**_R1.fastq.gz**
+    
 $ `perl panam2.pl -o example2 -d test2 -f GGCTTAATTTGACTCAACRCG -r GGGCATCACAGACCTGTTAT -id 0.95 -dom eukaryota ` 
 
 Help can be obtained by the following command:
