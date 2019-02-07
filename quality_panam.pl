@@ -214,8 +214,8 @@ my $ligneR1;my $ligneR2;
 
 
 
-  $command1=qx(grep -c "\@"  $inputSeqNameF); # Pas de sens si les fichiers sont compressés
-  $command2=qx(grep -c "\@"  $inputSeqNameR);
+  $command1=qx(grep -c "^+$"  $inputSeqNameF); # Pas de sens si les fichiers sont compressés
+  $command2=qx(grep -c "^+$"  $inputSeqNameR);
 
 
   if ($command1 >$command2){

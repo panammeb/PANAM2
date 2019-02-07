@@ -317,11 +317,10 @@ while( my $t = $in->next_tree ){
 sub best_hit_similarity {
 
 my $NGS;
-my $blast; # Patt complet vers le fichier best_hit_uc;
+my $blast; # Path complet vers le fichier best_hit_uc;
 
 ($NGS, $blast)=@_;
 
-# my $tab_OTU="/home/didier/DATA/Recherche/BoiteAoutils/panamv5quick/OTU_distribution_tax.txt";
 
 
 
