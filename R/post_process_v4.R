@@ -10,14 +10,14 @@ library(vegan)
 #Données brutes
 
 otu_table=read.table("OTU_distribution_phyloseq.txt",h=T,sep="\t", row.names=1) # Modif 24/05/2016
-otu_table[,-1]-> otu_table # Pour enlever les séquences représentatives
+otu_table[,-1]-> otu_table # remove seed sequences
 
 do.call('rbind',strsplit(as.character(otu_table[,"LCA.taxonomy"]),";", fixed=TRUE))-> taxonomy 
 rownames(taxonomy)=rownames(otu_table)
 labels_taxonomy=c("Domain", "Phylum", "Class", "Order", "Family", "Genus", "Species")
 colnames(taxonomy) <- labels_taxonomy[1:ncol(taxonomy)]
 
-otu_table[,which(colSums(otu_table[,1:(ncol(otu_table)-4)])>0)]->otu_table # Elimination des échantillopns vides
+otu_table[,which(colSums(otu_table[,1:(ncol(otu_table)-4)])>0)]->otu_table # Remove empty samples
 otu_taxonomy= phyloseq(otu_table( otu_table, taxa_are_rows = TRUE), tax_table(taxonomy))
 
 write.table(round(estimate_richness(otu_taxonomy),2), "../.Richness_diversity.tmp",sep="\t", quote=F, col.names=T, row.names=T)
@@ -26,7 +26,7 @@ write.table(round(estimate_richness(otu_taxonomy),2), "../.Richness_diversity.tm
 
 
 jpeg("Heatmap_OTUs.jpg")
-plot_heatmap(otu_taxonomy, "MDS", "bray", low = "#66CCFF", high = "#000033", na.value = "white") 
+plot_heatmap(otu_taxonomy, low = "#66CCFF", high = "#000033", na.value = "white") 
 dev.off()
 
 
@@ -69,7 +69,7 @@ dev.off()
 
 
 jpeg("Heatmap_OTUs_normalized.jpg")
-plot_heatmap(otu_norm,"MDS", "bray", low = "#66CCFF", high = "#000033", na.value = "white")
+plot_heatmap(otu_norm, low = "#66CCFF", high = "#000033", na.value = "white")
 dev.off()
 
 
