@@ -50,7 +50,7 @@ otu_table_norm=read.table("../OTU_distribution_tax_normalized_LCA.txt",h=T,sep="
 
 otu_table_norm[,1:(ncol(otu_table_norm)-1)]-> otu_table_norm
 
-if(is.data.frame(otu_table_norm)) # si 1 colonne -> vector
+if(is.data.frame(otu_table_norm)) # if 1 column -> vector
 {
 
 otu_table_norm[which(rowSums(otu_table_norm)>0),]-> otu_table_norm
