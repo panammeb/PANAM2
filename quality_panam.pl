@@ -360,15 +360,15 @@ system("mkdir $NGS_id_Results/quality_output/");
 $log_file=">".$NGS_id_Results."/panam.log";# Initialisation du fichier/début d'analyse
 
 open (LOG, $log_file);
-print LOG "Script Quality with demultiplexed files PANAM2 23/06/2017\n";
+print LOG "Script Quality for demultiplexed files PANAM2\n";
 open (TAG, ">".$NGS_id_Results."/.barcode.tag");
 
-my @demultiplexed_files=<"$demul_folder/*_R1.fastq*">;
+my @demultiplexed_files=<"$demul_folder/*_R1*.fastq*">;
 
 
 foreach my $R1 (@demultiplexed_files)
 {
-    if ($R1 =~ /(^[^_]*)(_.*)_R1.fastq(.*)/)
+    if ($R1 =~ /(^[^_]*)(_.*)_R1.*fastq(.*)/)
     {
     my $path_demul=$1;
     $path_demul=~ /$demul_folder\/(.*)/;
