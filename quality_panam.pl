@@ -352,7 +352,7 @@ close LOG;
 sub quality_withoutdemultiplexing
 {
 
-if (-e "$NGS_id_Results/quality_output/") {qx(rm -R "$NGS_id_Results/quality_output/");}# Sinon ajout de séquences à l'existant
+if (-e "$NGS_id_Results/quality_output/") {qx(rm -R "$NGS_id_Results/quality_output/");} # Sinon ajout de séquences à l'existant
 system("mkdir $NGS_id_Results/quality_output/");
 
 

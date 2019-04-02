@@ -10,7 +10,7 @@ PANAM2 combines the publicly available tools: VSEARCH, HMMER, FASTTREE, KRONA, R
 
 - step 1 - **quality_panam.pl**: merging, demultiplexing and cleaning raw Illumina reads
 
-- step 2 - **preprocess_panam.pl**: clustering and cleaning OTUs according to their abundances 
+- step 2 - **preprocess_panam.pl**: clustering and cleaning OTUs according to their abundances (remove rares for example)
 
 - step 3 - **taxonomy_panam.pl**: processing similarity annotations, alignments and phylogenies and computing main diversity indices for each samples and taxonomic units  (system dependencies:bioperl)
  
