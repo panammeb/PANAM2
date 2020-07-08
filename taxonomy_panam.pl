@@ -276,7 +276,7 @@ if ($trim == 1) {
 	else {
 		print "\n\tTrimming profiles ...\n"; 
 
-		###############"""récuperation des positions
+		############### Average positions of the primers
 		my %list_profils;
 		my $acces; 
 		my $taxo;
@@ -288,7 +288,7 @@ if ($trim == 1) {
 			
 		foreach my $nn (@listefic) { 
 			#foreach my $domain (@dom){
-			foreach my $domain (keys %dom) { # Récupération de toutes les séquences pour le domaine étudié
+			foreach my $domain (keys %dom) { # All sequences dor the domain(s) studied
 				if ($nn =~ /$domain/) { 
 					if ($nn=~ /$Reference\/Reference_all\/Profiles\/fasta\/(.*?).fasta/) { $taxo = $1 ; push (@tax, $taxo); }	
 					open (my $profils,"<".$Reference."/Reference_all/Profiles/fasta/$taxo.fasta") || die "can not open file";
